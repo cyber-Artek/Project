@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+<h1>{% block title %} Вкажіть своє призвіще та імя, та розкажіть про себе {% endblock %}</h1>
+
+
+<form method="post">
+    <div class="form-group">
+        <label for="title">Призвіще та імя</label>
+        <input type="text" name="title"
+               placeholder=" title" class="form-control"
+               value="{{ request.form['title'] }}"></input>
+    </div>
+
+    <div class="form-group">
+        <label for="content">Про себе</label>
+        <textarea name="content" placeholder=" content"
+                  class="form-control">{{ request.form['content'] }}</textarea>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+{% endblock %}

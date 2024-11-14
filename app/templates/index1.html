@@ -1,0 +1,29 @@
+{% extends "base1.html" %}
+{% block main %}
+
+<main class="container mt-3">
+
+    <section class="jumbotron text-center mt-4" style="background: url('https://www.issgovernance.com/file/2013/11/Website-Frontpage-Header-02.jpg'); background-position: center center">
+      <h1 class="display-4"> Тури </h1>
+      <p class="lead">{{subtitle}}</p>
+      <p class="mt-0 w-10 mx-auto"> {{description}}</p>
+    </section>
+
+    <div class="row mt-5">
+      {% for id in range(1,7) %}
+      <div class="col-4">
+        <div class="card mb-4">
+          <div class="embed-responsive embed-responsive-16by9">
+             <img class="card-img-top embed-responsive-item" src= "{{tours[id]["picture"]}}" alt="" />
+          </div>
+          <div class="card-body">
+            <h2 class="h5 card-title">{{ tours[id]["title"]}}</h2>
+            <p class="card-text"> {{ tours[id]["description"]|truncate(130) }}</p>
+            <a href="/tours/{{ id }}/" class="btn btn-sm btn-primary">Деталі туру</a>
+          </div>
+        </div>
+      </div>
+     {% endfor %}
+    </div>
+</main>
+{% endblock %}}
